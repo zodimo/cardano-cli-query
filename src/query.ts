@@ -1,5 +1,6 @@
 import { Builder } from '@zodimo/cardano-cli-base';
 import { ProtocolParameters, ProtocolParametersOptions } from './command/protocol-parameters';
+import { Tip, TipOptions } from './command/tip';
 
 export class Query {
   public readonly commandPrefix: string;
@@ -27,9 +28,18 @@ export class Query {
   }
 
   // tip
-  tip() {
-    throw new Error('Not yet implemented!');
+
+  tip(builder: Builder<TipOptions, TipOptions>): Tip;
+  tip(options: TipOptions): ProtocolParameters;
+  tip(value: TipOptions | Builder<TipOptions, TipOptions>): ProtocolParameters {
+    if (value instanceof TipOptions) {
+      return new Tip(this.commandPrefix, value);
+    }
+
+    const options = value(new TipOptions());
+    return this.tip(options);
   }
+
   // stake-pools
   stakePools() {
     throw new Error('Not yet implemented!');

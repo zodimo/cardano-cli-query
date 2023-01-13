@@ -39,7 +39,7 @@ Usage: cardano-cli query
 
 - [ ] query
   - [x] protocol-parameters
-  - [ ] tip
+  - [x] tip
   - [ ] stake-pools
   - [ ] stake-distribution
   - [ ] stake-address-info

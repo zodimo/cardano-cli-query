@@ -1,4 +1,6 @@
-// export * from './stake-address';
+export * from './query';
+export * from './command/protocol-parameters';
+export * from './command/tip';
 // export * from './command/stake-component';
 // export * from './command/build';
 // export * from './command/delegation-certificate';
