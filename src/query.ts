@@ -1,6 +1,7 @@
 import { Builder } from '@zodimo/cardano-cli-base';
 import { ProtocolParameters, ProtocolParametersOptions } from './command/protocol-parameters';
 import { Tip, TipOptions } from './command/tip';
+import { Utxo, UtxoOptions } from './command/utxo';
 
 export class Query {
   public readonly commandPrefix: string;
@@ -30,8 +31,8 @@ export class Query {
   // tip
 
   tip(builder: Builder<TipOptions, TipOptions>): Tip;
-  tip(options: TipOptions): ProtocolParameters;
-  tip(value: TipOptions | Builder<TipOptions, TipOptions>): ProtocolParameters {
+  tip(options: TipOptions): Tip;
+  tip(value: TipOptions | Builder<TipOptions, TipOptions>): Tip {
     if (value instanceof TipOptions) {
       return new Tip(this.commandPrefix, value);
     }
@@ -52,10 +53,20 @@ export class Query {
   stakeAddressInfo() {
     throw new Error('Not yet implemented!');
   }
+
   // utxo
-  utxo() {
-    throw new Error('Not yet implemented!');
+
+  utxo(builder: Builder<UtxoOptions, UtxoOptions>): Utxo;
+  utxo(options: UtxoOptions): Utxo;
+  utxo(value: UtxoOptions | Builder<UtxoOptions, UtxoOptions>): Utxo {
+    if (value instanceof UtxoOptions) {
+      return new Utxo(this.commandPrefix, value);
+    }
+
+    const options = value(new UtxoOptions());
+    return this.utxo(options);
   }
+
   // ledger-state
   ledgerState() {
     throw new Error('Not yet implemented!');

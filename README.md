@@ -43,7 +43,7 @@ Usage: cardano-cli query
   - [ ] stake-pools
   - [ ] stake-distribution
   - [ ] stake-address-info
-  - [ ] utxo
+  - [x] utxo
   - [ ] ledger-state
   - [ ] protocol-state
   - [ ] stake-snapshot
