@@ -1,0 +1,23 @@
+Usage: cardano-cli query stake-distribution 
+            [ --shelley-mode
+            | --byron-mode [--epoch-slots NATURAL]
+            | --cardano-mode [--epoch-slots NATURAL]
+            ]
+            (--mainnet | --testnet-magic NATURAL)
+            [--out-file FILE]
+
+  Get the node's current aggregated stake distribution
+
+Available options:
+  --shelley-mode           For talking to a node running in Shelley-only mode.
+  --byron-mode             For talking to a node running in Byron-only mode.
+  --epoch-slots NATURAL    The number of slots per epoch for the Byron era.
+                           (default: 21600)
+  --cardano-mode           For talking to a node running in full Cardano mode
+                           (default).
+  --epoch-slots NATURAL    The number of slots per epoch for the Byron era.
+                           (default: 21600)
+  --mainnet                Use the mainnet magic id.
+  --testnet-magic NATURAL  Specify a testnet magic id.
+  --out-file FILE          Optional output file. Default is to write to stdout.
+  -h,--help                Show this help text
