@@ -38,7 +38,7 @@ Usage: cardano-cli query
 - Implementations
 
 - [ ] query
-  - [ ] protocol-parameters
+  - [x] protocol-parameters
   - [ ] tip
   - [ ] stake-pools
   - [ ] stake-distribution

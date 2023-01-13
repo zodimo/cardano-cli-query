@@ -1,3 +1,6 @@
+import { Builder } from '@zodimo/cardano-cli-base';
+import { ProtocolParameters, ProtocolParametersOptions } from './command/protocol-parameters';
+
 export class Query {
   public readonly commandPrefix: string;
   constructor(commandPrefix: string) {
@@ -10,9 +13,19 @@ export class Query {
 
   // protocol-parameters
 
-  protocolParameters() {
-    throw new Error('Not yet implemented!');
+  protocolParameters(builder: Builder<ProtocolParametersOptions, ProtocolParametersOptions>): ProtocolParameters;
+  protocolParameters(options: ProtocolParametersOptions): ProtocolParameters;
+  protocolParameters(
+    value: ProtocolParametersOptions | Builder<ProtocolParametersOptions, ProtocolParametersOptions>,
+  ): ProtocolParameters {
+    if (value instanceof ProtocolParametersOptions) {
+      return new ProtocolParameters(this.commandPrefix, value);
+    }
+
+    const options = value(new ProtocolParametersOptions());
+    return this.protocolParameters(options);
   }
+
   // tip
   tip() {
     throw new Error('Not yet implemented!');
