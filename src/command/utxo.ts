@@ -72,9 +72,9 @@ export class UtxoOptions implements CommandOptions {
     return this;
   }
 
-  UtxoFilter(builder: Builder<UtxoFilterBuilder, UtxoFilter>): UtxoOptions;
-  UtxoFilter(value: UtxoFilter): UtxoOptions;
-  UtxoFilter(value: UtxoFilter | Builder<UtxoFilterBuilder, UtxoFilter>): UtxoOptions {
+  withUtxoFilter(builder: Builder<UtxoFilterBuilder, UtxoFilter>): UtxoOptions;
+  withUtxoFilter(value: UtxoFilter): UtxoOptions;
+  withUtxoFilter(value: UtxoFilter | Builder<UtxoFilterBuilder, UtxoFilter>): UtxoOptions {
     if (typeof value !== 'function') {
       this.utxofilter = value;
       return this;

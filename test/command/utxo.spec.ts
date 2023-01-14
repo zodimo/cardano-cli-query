@@ -51,7 +51,7 @@ Usage: cardano-cli query utxo
             .withNodeMode((builder) => builder.cardano())
             .withNetwork((builder) => builder.testnetMagic(2))
             .withWholeUtxo()
-            .UtxoFilter((builder) => builder.address(address))
+            .withUtxoFilter((builder) => builder.address(address))
             .withOutFile((builder) => builder.createForFile(outFileName)),
         )
         .getCommand(),
