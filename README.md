@@ -50,3 +50,44 @@ Usage: cardano-cli query
   - [ ] pool-params
   - [ ] leadership-schedule
   - [ ] kes-period-info
+
+
+# Note on incorrect -h docs
+### cardano-cli query utxo 
+```text
+Usage: cardano-cli query utxo 
+            [ --shelley-mode
+            | --byron-mode [--epoch-slots NATURAL]
+            | --cardano-mode [--epoch-slots NATURAL]
+            ]
+            (--whole-utxo | (--address ADDRESS) | (--tx-in TX-IN))
+            (--mainnet | --testnet-magic NATURAL)
+            [--out-file FILE]
+```
+should read 
+```text
+Usage: cardano-cli query utxo 
+            [ --shelley-mode
+            | --byron-mode [--epoch-slots NATURAL]
+            | --cardano-mode [--epoch-slots NATURAL]
+            ]
+            (--whole-utxo | --address ADDRESS | --tx-in TX-IN)
+            (--mainnet | --testnet-magic NATURAL)
+            [--out-file FILE]
+```
+Error to confirm this
+```text
+Error: Command failed: cardano-cli query utxo --whole-utxo --address addr_test1qrajrdzsp258gryrxh78ty2wj6udvmq6l3tuqwkslx9dj2rcqg5xt4afs6h06055djwg95kzuc8m3vamympdyu0g6xtsefjs5j
+Invalid option `--address'
+
+Usage: cardano-cli query utxo 
+            [ --shelley-mode
+            | --byron-mode [--epoch-slots NATURAL]
+            | --cardano-mode [--epoch-slots NATURAL]
+            ]
+            (--whole-utxo | (--address ADDRESS) | (--tx-in TX-IN))
+            (--mainnet | --testnet-magic NATURAL)
+            [--out-file FILE]
+
+  Get a portion of the current UTxO: by tx in, by address or the whole.
+```
