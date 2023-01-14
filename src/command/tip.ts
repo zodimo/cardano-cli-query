@@ -18,7 +18,7 @@ export class TipOptions implements CommandOptions {
   withNodeMode(builder: Builder<NodeModeBuilder, NodeMode>): TipOptions;
   withNodeMode(value: NodeMode): TipOptions;
   withNodeMode(value: NodeMode | Builder<NodeModeBuilder, NodeMode>): TipOptions {
-    if (value instanceof NodeMode) {
+    if (typeof value !== 'function') {
       this.nodeMode = value;
       return this;
     }
@@ -29,7 +29,7 @@ export class TipOptions implements CommandOptions {
   withNetwork(builder: Builder<NetworkBuilder, Network>): TipOptions;
   withNetwork(value: Network): TipOptions;
   withNetwork(value: Network | Builder<NetworkBuilder, Network>): TipOptions {
-    if (value instanceof Network) {
+    if (typeof value !== 'function') {
       this.network = value;
       return this;
     }
@@ -41,7 +41,7 @@ export class TipOptions implements CommandOptions {
   withOutFile(builder: Builder<OutFileBuilder, OutFile>): TipOptions;
   withOutFile(value: OutFile): TipOptions;
   withOutFile(value: OutFile | Builder<OutFileBuilder, OutFile>): TipOptions {
-    if (value instanceof OutFile) {
+    if (typeof value !== 'function') {
       this.outFile = value;
       return this;
     }

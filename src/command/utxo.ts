@@ -47,7 +47,7 @@ export class UtxoOptions implements CommandOptions {
   withNodeMode(builder: Builder<NodeModeBuilder, NodeMode>): UtxoOptions;
   withNodeMode(value: NodeMode): UtxoOptions;
   withNodeMode(value: NodeMode | Builder<NodeModeBuilder, NodeMode>): UtxoOptions {
-    if (value instanceof NodeMode) {
+    if (typeof value !== 'function') {
       this.nodeMode = value;
       return this;
     }
@@ -58,7 +58,7 @@ export class UtxoOptions implements CommandOptions {
   withNetwork(builder: Builder<NetworkBuilder, Network>): UtxoOptions;
   withNetwork(value: Network): UtxoOptions;
   withNetwork(value: Network | Builder<NetworkBuilder, Network>): UtxoOptions {
-    if (value instanceof Network) {
+    if (typeof value !== 'function') {
       this.network = value;
       return this;
     }
@@ -75,7 +75,7 @@ export class UtxoOptions implements CommandOptions {
   UtxoFilter(builder: Builder<UtxoFilterBuilder, UtxoFilter>): UtxoOptions;
   UtxoFilter(value: UtxoFilter): UtxoOptions;
   UtxoFilter(value: UtxoFilter | Builder<UtxoFilterBuilder, UtxoFilter>): UtxoOptions {
-    if (value instanceof UtxoFilter) {
+    if (typeof value !== 'function') {
       this.utxofilter = value;
       return this;
     }
@@ -87,7 +87,7 @@ export class UtxoOptions implements CommandOptions {
   withOutFile(builder: Builder<OutFileBuilder, OutFile>): UtxoOptions;
   withOutFile(value: OutFile): UtxoOptions;
   withOutFile(value: OutFile | Builder<OutFileBuilder, OutFile>): UtxoOptions {
-    if (value instanceof OutFile) {
+    if (typeof value !== 'function') {
       this.outFile = value;
       return this;
     }

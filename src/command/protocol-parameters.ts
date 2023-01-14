@@ -18,7 +18,7 @@ export class ProtocolParametersOptions implements CommandOptions {
   withNodeMode(builder: Builder<NodeModeBuilder, NodeMode>): ProtocolParametersOptions;
   withNodeMode(value: NodeMode): ProtocolParametersOptions;
   withNodeMode(value: NodeMode | Builder<NodeModeBuilder, NodeMode>): ProtocolParametersOptions {
-    if (value instanceof NodeMode) {
+    if (typeof value !== 'function') {
       this.nodeMode = value;
       return this;
     }
@@ -29,7 +29,7 @@ export class ProtocolParametersOptions implements CommandOptions {
   withNetwork(builder: Builder<NetworkBuilder, Network>): ProtocolParametersOptions;
   withNetwork(value: Network): ProtocolParametersOptions;
   withNetwork(value: Network | Builder<NetworkBuilder, Network>): ProtocolParametersOptions {
-    if (value instanceof Network) {
+    if (typeof value !== 'function') {
       this.network = value;
       return this;
     }
@@ -41,7 +41,7 @@ export class ProtocolParametersOptions implements CommandOptions {
   withOutFile(builder: Builder<OutFileBuilder, OutFile>): ProtocolParametersOptions;
   withOutFile(value: OutFile): ProtocolParametersOptions;
   withOutFile(value: OutFile | Builder<OutFileBuilder, OutFile>): ProtocolParametersOptions {
-    if (value instanceof OutFile) {
+    if (typeof value !== 'function') {
       this.outFile = value;
       return this;
     }

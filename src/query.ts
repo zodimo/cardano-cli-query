@@ -20,7 +20,7 @@ export class Query {
   protocolParameters(
     value: ProtocolParametersOptions | Builder<ProtocolParametersOptions, ProtocolParametersOptions>,
   ): ProtocolParameters {
-    if (value instanceof ProtocolParametersOptions) {
+    if (typeof value !== 'function') {
       return new ProtocolParameters(this.commandPrefix, value);
     }
 
@@ -33,7 +33,7 @@ export class Query {
   tip(builder: Builder<TipOptions, TipOptions>): Tip;
   tip(options: TipOptions): Tip;
   tip(value: TipOptions | Builder<TipOptions, TipOptions>): Tip {
-    if (value instanceof TipOptions) {
+    if (typeof value !== 'function') {
       return new Tip(this.commandPrefix, value);
     }
 
@@ -59,7 +59,7 @@ export class Query {
   utxo(builder: Builder<UtxoOptions, UtxoOptions>): Utxo;
   utxo(options: UtxoOptions): Utxo;
   utxo(value: UtxoOptions | Builder<UtxoOptions, UtxoOptions>): Utxo {
-    if (value instanceof UtxoOptions) {
+    if (typeof value !== 'function') {
       return new Utxo(this.commandPrefix, value);
     }
 
